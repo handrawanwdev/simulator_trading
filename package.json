@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build-dev": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "redeploy": "pnpm run build",
+    "redeploy": "yarn run build-dev",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "react-table": "^7.7.0",
     "react-topbar-progress-indicator": "4.1.1",
     "socicon": "3.0.5",
+    "sweetalert2": "^11.12.4",
     "uuidv7": "^1.0.1",
     "yup": "^1.0.0"
   },

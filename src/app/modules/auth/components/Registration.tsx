@@ -12,7 +12,6 @@ import {useAuth} from '../core/Auth'
 import { md5 } from 'js-md5'
 import { uuidv7 } from "uuidv7"
 
-
 const initialValues = {
   email: '',
   password: '',
@@ -46,6 +45,7 @@ export function Registration() {
     validationSchema: registrationSchema,
     onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
+      localStorage.removeItem('data_user');
       try {
         setLoading(false)
         let user = JSON.parse(localStorage.getItem('data_user')) || {
@@ -56,12 +56,9 @@ export function Registration() {
           "id": uuidv7(Date.now()),
           "updated_at": new Date()
         };
-        if(values.email === user.email) {
-          setStatus('The email is already registered')
-          setSubmitting(false)
-        }else{
-          localStorage.setItem('data_user', JSON.stringify(user))
-        }
+        setSubmitting(false)
+        localStorage.setItem('data_user', JSON.stringify(user))
+        alert("Registration successful")
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
