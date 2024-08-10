@@ -13,15 +13,15 @@ const Footer = () => {
           {new Date().getFullYear().toString()}&copy;
         </span>
         <a
-          href='https://keenthemes.com/'
+          href='/simulator_trading/'
           target='_blank'
           className='text-gray-800 text-hover-primary'
         >
-          Keenthemes
+          Handrawan
         </a>
       </div>
 
-      <ul className='menu menu-gray-600 menu-hover-primary fw-semibold order-1'>
+      {/* <ul className='menu menu-gray-600 menu-hover-primary fw-semibold order-1'>
         <li className='menu-item'>
           <a href='https://keenthemes.com/' target='_blank' className='menu-link px-2'>
             About
@@ -43,7 +43,7 @@ const Footer = () => {
             Purchase
           </a>
         </li>
-      </ul>
+      </ul> */}
     </>
   )
 }

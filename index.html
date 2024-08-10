@@ -16,7 +16,7 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <!--begin::Theme mode setup on page load-->
   <script>
-    let themeMode = 'system'
+    let themeMode = 'light'
 
     if (localStorage.getItem('kt_theme_mode_value')) {
       themeMode = localStorage.getItem('kt_theme_mode_value')
@@ -34,8 +34,6 @@
 
   <!--begin::Loading markup-->
   <div id="splash-screen" class="splash-screen">
-    <img src="media/logos/keenthemes-dark.svg" class="dark-logo" alt="Keenthemes dark logo" />
-    <img src="media/logos/keenthemes.svg" class="light-logo" alt="Keenthemes light logo" />
     <div class="loader-wrapper">
       <span class="loader"></span>
       <span class="loading-text">Loading...</span>
