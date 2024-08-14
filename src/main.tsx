@@ -4,6 +4,8 @@ import axios from 'axios'
 import {Chart, registerables} from 'chart.js'
 import {QueryClient, QueryClientProvider} from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'
+// import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+
 // Apps
 import {MetronicI18nProvider} from './_metronic/i18n/Metronici18n'
 import './_metronic/assets/sass/style.react.scss'
@@ -21,7 +23,7 @@ import {AppRoutes} from './app/routing/AppRoutes'
 import {AuthProvider, setupAxios} from './app/modules/auth'
 /**
  * Creates `axios-mock-adapter` instance for provided `axios` instance, add
- * basic Metronic mocks and returns it.
+ * basic Metronic mocks and returns it. 
  *
  * @see https://github.com/ctimmerm/axios-mock-adapter
  */
@@ -43,7 +45,10 @@ if (container) {
           <AppRoutes />
         </AuthProvider>
       </MetronicI18nProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   )
 }
+
+// Register service worker
+// serviceWorkerRegistration.unregister();

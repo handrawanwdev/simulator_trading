@@ -1,5 +1,5 @@
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import * as Yup from 'yup'
 import clsx from 'clsx'
 import {Link} from 'react-router-dom'
@@ -8,6 +8,7 @@ import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
 import { md5 } from 'js-md5'
+import { useNavigate  } from 'react-router-dom'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -32,9 +33,20 @@ const initialValues = {
   https://medium.com/@maurice.de.beijer/yup-validation-and-typescript-and-formik-6c342578a20e
 */
 
+
 export function Login() {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
+  
+  const history = useNavigate()
+  
+  useEffect(() => {
+    // If user is already logged in, redirect to the home page
+    if (import.meta.env.VITE_APP_NODE_ENV == "production") {
+      history('/simulaasi_trading')
+    }
+    // eslint-disable-next-line
+  }, [])
 
   const formik = useFormik({
     initialValues,
